@@ -28,8 +28,12 @@ export default function Banner() {
                 placement="top"
                 className="flex flex-col font-semibold items-center justify-center text-slate-600"
               >
-                <Dataset style={{ fontSize: "36px", color: "#facc15" }} />
-                <span>62m<sup>2</sup></span>
+                <>
+                  <Dataset style={{ fontSize: "36px", color: "#facc15" }} />
+                  <span>
+                    62m<sup>2</sup>
+                  </span>
+                </>
               </Tooltip>
             </li>
             <li className="basis-1/3 border-b flex flex-col items-center justify-center">
@@ -38,7 +42,9 @@ export default function Banner() {
                 placement="top"
                 className="flex flex-col items-center justify-center text-slate-600 font-semibold"
               >
-                <Bathtub style={{ fontSize: "36px", color: "#facc15" }} />1
+                <>
+                  <Bathtub style={{ fontSize: "36px", color: "#facc15" }} />1
+                </>
               </Tooltip>
             </li>
             <li className="basis-1/3 flex flex-col font-semibold items-center justify-center text-slate-600">
@@ -47,8 +53,10 @@ export default function Banner() {
                 placement="top"
                 className="flex flex-col items-center justify-center text-slate-600 font-semibold"
               >
-                <Bed style={{ fontSize: "36px", color: "#facc15" }} />
-                1+
+                <>
+                  <Bed style={{ fontSize: "36px", color: "#facc15" }} />
+                  1+
+                </>
               </Tooltip>
             </li>
           </ul>
