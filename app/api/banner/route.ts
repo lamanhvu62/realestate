@@ -1,13 +1,16 @@
-import { db } from '@/app/libs/firebaseConfig';
-import { collection, getDocs } from 'firebase/firestore';
-import { NextResponse } from 'next/server';
+import { db } from "@/app/libs/firebaseConfig";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { NextResponse } from "next/server";
 
 export const GET = async () => {
-  const query = await getDocs(collection(db, "projects"));
-  if(query.empty) {
-    return new NextResponse(JSON.stringify('empty'), {status: 200});
+  const q = query(collection(db, "projects"), where("active", "==", true));
+  const banners = await getDocs(q);
+  if (banners.empty) {
+    return new NextResponse(JSON.stringify("empty"), { status: 200 });
   } else {
-    const banners = query.docs.map(doc => ({id: doc.id, ...doc.data()}));
-    return new NextResponse(JSON.stringify(banners), {status: 200});
+    const data = banners.docs.map((doc) => {
+      return { id: doc.id, ...doc.data() };
+    });
+    return new NextResponse(JSON.stringify(data), { status: 200 });
   }
-}
+};

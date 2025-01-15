@@ -4,53 +4,25 @@ import Image from "next/image";
 import { Bathtub, Bed, Dataset, LocationOn, Sell } from "@mui/icons-material";
 import { Button, Tooltip } from "@mui/material";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import type { BannerType } from "../types";
 
 // Import Swiper styles
-import 'swiper/css';
+import "swiper/css";
 
-export default function Banner() {
-  interface Banner {
-    id: string;
-    bed: string;
-    shower: string;
-    area: string;
-    address: string;
-    desc: string;
-    price: string;
-    link: string;
-    img: string;
-    name: string;
-  }
-
-  const [banners, setBanners] = useState<Banner[]>([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await fetch("/api/banner");
-        const data = await res.json();
-        setBanners(data);
-        console.log(data);
-      } catch (error) {
-        console.error("Error fetching banner data:", error);
-      }
-    }
-    fetchData();
-  }, []);
+export default function Banner({data}: {data: BannerType[]}) {
 
   return (
     <div className="relative h-screen overflow-hidden">
       <Swiper slidesPerView={1} navigation pagination={{ clickable: true }}>
-        {banners.map((banner) => {
+        {data.map((items) => {
           return (
-            <SwiperSlide key={banner.id}>
+            <SwiperSlide key={items.id}>
               <div className="w-full h-screen relative flex items-center justify-end pr-5 z-20">
                 <div className="absolute -z-10 bottom-0">
                   <Image
-                    src={banner.img}
-                    alt={banner.name}
+                    src={items.img}
+                    alt={items.name}
                     width={1920}
                     height={1080}
                   />
@@ -67,80 +39,79 @@ export default function Banner() {
                     </svg>
                   </div>
                   <ul className="p-2 w-2/12 flex flex-col justify-between items-center">
-                    <li className="basis-1/3 border-b flex flex-col items-center justify-center">
+                    <li className="basis-1/3 border-b flex flex-col items-center justify-center text-slate-600 font-semibold">
                       <Tooltip
                         title="Diện tích"
                         placement="top"
-                        className="flex flex-col font-semibold items-center justify-center text-slate-600"
+                        className="flex flex-col font-semibold items-center justify-center"
                       >
-                        <>
-                          <Dataset style={{ fontSize: "36px", color: "#facc15" }} />
+                        <div>
+                          <Dataset
+                            style={{ fontSize: "36px", color: "#facc15" }}
+                          />
                           <span>
-                            {banner.area}m<sup>2</sup>
+                            {items.area}m<sup>2</sup>
                           </span>
-                        </>
+                        </div>
                       </Tooltip>
                     </li>
-                    <li className="basis-1/3 border-b flex flex-col items-center justify-center">
+                    <li className="basis-1/3 border-b flex flex-col items-center justify-center text-slate-600 font-semibold">
                       <Tooltip
                         title="Phòng tắm"
                         placement="top"
-                        className="flex flex-col items-center justify-center text-slate-600 font-semibold"
+                        className="flex flex-col items-center justify-center font-semibold"
                       >
-                        <>
-                          <Bathtub style={{ fontSize: "36px", color: "#facc15" }} />{banner.shower}
-                        </>
+                        <div>
+                          <Bathtub
+                            style={{ fontSize: "36px", color: "#facc15" }}
+                          />
+                          {items.shower}
+                        </div>
                       </Tooltip>
                     </li>
                     <li className="basis-1/3 flex flex-col font-semibold items-center justify-center text-slate-600">
                       <Tooltip
                         title="Phòng ngủ"
                         placement="top"
-                        className="flex flex-col items-center justify-center text-slate-600 font-semibold"
+                        className="flex flex-col items-center justify-center"
                       >
-                        <>
+                        <div>
                           <Bed style={{ fontSize: "36px", color: "#facc15" }} />
-                          {banner.bed}
-                        </>
+                          {items.bed}
+                        </div>
                       </Tooltip>
                     </li>
                   </ul>
                   <div className="p-3 border-l w-10/12">
                     <p className="text-slate-600 mb-6">
-                      <LocationOn style={{ fontSize: "26px", color: "#facc15" }} />
-                      {banner.address}
+                      <LocationOn
+                        style={{ fontSize: "26px", color: "#facc15" }}
+                      />
+                      {items.address}
                     </p>
                     <h2 className="text-3xl font-bold text-yellow-400 mb-4">
-                      {banner.name}
+                      {items.name}
                     </h2>
-                    <p className="mb-4 text-slate-600">
-                      {banner.desc}
-                    </p>
+                    <p className="mb-4 text-slate-600">{items.desc}</p>
                     <div className="flex justify-between items-center">
                       <p className="text-slate-600 text-2xl font-semibold">
-                        <Sell style={{ fontSize: "26px", color: "#facc15" }} />{banner.price} VND
+                        <Sell style={{ fontSize: "26px", color: "#facc15" }} />
+                        {items.price} VND
                       </p>
                       <Button
                         variant="contained"
                         style={{ backgroundColor: "#facc15" }}
                       >
-                        <Link href={banner.link}>
-                          Xem chi tiết</Link>
+                        <Link href={items.link}>Xem chi tiết</Link>
                       </Button>
                     </div>
                   </div>
                 </div>
               </div>
             </SwiperSlide>
-          )
+          );
         })}
-
-
       </Swiper>
-
     </div>
   );
 }
-
-
-
