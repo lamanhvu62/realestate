@@ -1,14 +1,9 @@
 import Banner from "./components/Banner";
-import { collection, getDocs } from "firebase/firestore";
-import db from "./libs/firebaseConfig";
 
 
-export default async function Home() {
-  const banners = '123'
-
-  
+export default function Home() {
   return (
-    <div className="">
+    <div>
       <Banner />
     </div>
   );
