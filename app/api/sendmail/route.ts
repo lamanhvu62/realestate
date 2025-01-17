@@ -11,7 +11,7 @@ export const POST = async (req: Request) => {
         from: 'onboarding@resend.dev',
         to: 'lamanhvu62@gmail.com',
         subject: 'You have new Customer',
-        react: await EmailTemplate({ firstName: data.firstName, email: data.email, phone: data.phone, message: data.message }),
+        react: await EmailTemplate({ firstName: data.name, email: data.email, phone: data.phone, message: data.message }),
     });
 
     return new NextResponse(JSON.stringify({ success: 'true' }), { status: 200 });
