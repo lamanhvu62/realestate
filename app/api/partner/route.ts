@@ -1,5 +1,5 @@
 import { db } from "@/app/libs/firebaseConfig";
-import { collection, getDocs, limit, orderBy, query, where } from "firebase/firestore";
+import { collection, getDocs, limit, query, where } from "firebase/firestore";
 import { NextResponse } from "next/server";
 
 export const GET = async () => {

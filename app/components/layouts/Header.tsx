@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 
 export default function Header() {
-    const [scroll, setScroll] = useState<Boolean>(false);
+    const [scroll, setScroll] = useState<boolean>(false);
 
     useEffect(() => {
         window.addEventListener("scroll", () => {

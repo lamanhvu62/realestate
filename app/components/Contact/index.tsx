@@ -5,8 +5,6 @@ export default function Contact() {
 
     const [formData, setFormData] = useState({ name: "", email: "", message: "", phone: "" });
     const [loading, setLoading] = useState(false);
-    const [success, setSuccess] = useState("");
-    const [error, setError] = useState("");
 
     interface Event {
         target: {
@@ -22,7 +20,7 @@ export default function Contact() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log("Form data:", formData);
+        setLoading(true);
         try {
             const res = await fetch("/api/sendmail", {
                 method: "POST",
@@ -34,8 +32,7 @@ export default function Contact() {
             if (!res.ok) {
                 throw new Error(`HTTP error! status: ${res.status}`);
             }
-            const data = await res.json();
-            console.log("Response from API:", data);
+            setLoading(false);
         } catch (error) {
             console.error("Error sending data:", error);
         }

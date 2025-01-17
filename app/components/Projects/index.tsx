@@ -21,7 +21,7 @@ export default function Projects({ data }: { data: BannerType[] }) {
           Hãy xem những dự án nổi bật của chúng tôi
         </p>
         <div className="flex flex-wrap text-gray-700">
-          {data.map((item, index) => (
+          {data.map((item) => (
             <div key={item.id} className={`w-1/2 p-2`}>
               <div className="bg-white rounded-xl overflow-hidden shadow-md">
                 <div

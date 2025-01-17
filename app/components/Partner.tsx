@@ -25,7 +25,7 @@ export default function Partner() {
                 <p className="text-center mb-5">Các đơn vị và đối tác của chúng tôi</p>
                 <ul className="flex flex-wrap justify-start items-center">
                     {
-                        data.map((item, index) => (
+                        data.map((item) => (
                             <li key={item.id} className="flex items-center justify-center w-1/4">
                                 <Image src={item.img} alt={item.name} width="1020" height="420" />
                             </li>
