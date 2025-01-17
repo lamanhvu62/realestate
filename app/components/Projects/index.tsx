@@ -14,7 +14,7 @@ export default function Projects({ data }: { data: BannerType[] }) {
   return (
     <div>
       <div className="container mx-auto py-11 max-w-5xl">
-        <h3 className="text-3xl font-bold text-center text-yellow-400 mb-2">
+        <h3 className="text-3xl font-bold text-center text-yellow-400 mb-2 [text-shadow:_0_2px_1px_rgb(0_0_0_/_40%)]">
           Dự Án
         </h3>
         <p className="text-center mb-6 text-gray-600">
@@ -22,7 +22,7 @@ export default function Projects({ data }: { data: BannerType[] }) {
         </p>
         <div className="flex flex-wrap text-gray-700">
           {data.map((item, index) => (
-            <div key={item.id} className={`w-1/2 p-2 order-${item.order}`}>
+            <div key={item.id} className={`w-1/2 p-2`}>
               <div className="bg-white rounded-xl overflow-hidden shadow-md">
                 <div
                   className={`${style.card}`}

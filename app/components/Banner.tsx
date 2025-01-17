@@ -18,7 +18,7 @@ export default function Banner({data}: {data: BannerType[]}) {
         {data.map((items) => {
           return (
             <SwiperSlide key={items.id}>
-              <div className="w-full h-screen relative flex items-center justify-end pr-5 z-20">
+              <div className="w-full h-screen relative flex items-center justify-end z-20">
                 <div className="absolute -z-10 bottom-0">
                   <Image
                     src={items.img}

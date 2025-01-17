@@ -14,4 +14,12 @@ interface BannerType {
   order: string;
 }
 
-export type { BannerType };
+interface PartnerType {
+  id: string;
+  img: string;
+  name: string;
+  active: boolean;
+  order: string;
+}
+
+export type { BannerType, PartnerType };
