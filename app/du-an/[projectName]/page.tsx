@@ -30,7 +30,7 @@ export default function Pages() {
 
         }
         fetchData();
-    }, [router]);
+    }, [slug]);
 
     if (loading) {
         return (
