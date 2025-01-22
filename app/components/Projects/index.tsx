@@ -10,8 +10,32 @@ import {
   Sell,
   WhatshotSharp,
 } from "@mui/icons-material";
+import Card from '../Skeleton/Card'
 
-export default function Projects({ data }: { data: BannerType[] }) {
+export default function Projects({ data, loading }: { data: BannerType[], loading: boolean }) {
+  if (loading) {
+    return (
+      <div className="container mx-auto py-11 max-w-5xl">
+        <h3 className="text-3xl font-bold text-center text-yellow-400 mb-2 [text-shadow:_0_2px_1px_rgb(0_0_0_/_40%)]">
+          Dự Án
+        </h3>
+        <p className="text-center mb-6 text-gray-600">
+          Hãy xem những dự án nổi bật của chúng tôi
+        </p>
+        <div className="flex flex-wrap">
+          <div className="xl:w-1/2 w-full p-3">
+            <Card />
+          </div>
+          <div className="xl:w-1/2 w-full p-3">
+            <Card />
+          </div>
+          <div className="xl:w-1/2 w-full p-3">
+            <Card />
+          </div>
+        </div>
+      </div>
+    )
+  }
   return (
     <div>
       <div className="container mx-auto py-11 max-w-5xl">
