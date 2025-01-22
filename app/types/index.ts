@@ -12,6 +12,7 @@ interface BannerType {
   active: boolean;
   hot: boolean;
   order: string;
+  slug: string;
 }
 
 interface PartnerType {

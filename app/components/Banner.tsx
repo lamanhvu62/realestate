@@ -102,7 +102,7 @@ export default function Banner({data}: {data: BannerType[]}) {
                         variant="contained"
                         style={{ backgroundColor: "#facc15" }}
                       >
-                        <Link href={items.link}>Xem chi tiết</Link>
+                        <Link href={`/du-an/${items.link}`}>Xem chi tiết</Link>
                       </Button>
                     </div>
                   </div>
