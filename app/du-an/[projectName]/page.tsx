@@ -51,7 +51,7 @@ export default function Pages() {
     return (
         <div className="">
             <div className="container mx-auto py-4 max-w-5xl">
-                <nav className="flex" aria-label="Breadcrumb">
+                <nav className="flex px-5" aria-label="Breadcrumb">
                     <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                         <li className="inline-flex items-center">
                             <Link href="/" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">

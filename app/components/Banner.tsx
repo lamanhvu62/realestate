@@ -13,13 +13,13 @@ import "swiper/css";
 export default function Banner({data}: {data: BannerType[]}) {
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative xl:h-screen overflow-hidden">
       <Swiper slidesPerView={1} navigation pagination={{ clickable: true }}>
         {data.map((items) => {
           return (
             <SwiperSlide key={items.id}>
-              <div className="w-full h-screen relative flex items-center justify-end z-20">
-                <div className="absolute -z-10 bottom-0">
+              <div className="w-full xl:h-screen relative flex xl:flex-row flex-col items-center justify-end z-20">
+                <div className="xl:absolute -z-10 bottom-0">
                   <Image
                     src={items.img}
                     alt={items.name}
@@ -27,7 +27,7 @@ export default function Banner({data}: {data: BannerType[]}) {
                     height={1080}
                   />
                 </div>
-                <div className="w-4/12 xl:w-1/2 bg-white rounded flex relative">
+                <div className="w-full xl:w-1/2 bg-white rounded flex relative">
                   <div className="absolute top-4 right-4">
                     <svg
                       viewBox="0 0 100 100"
@@ -89,12 +89,12 @@ export default function Banner({data}: {data: BannerType[]}) {
                       />
                       {items.address}
                     </p>
-                    <h2 className="text-3xl font-bold text-yellow-400 mb-4">
+                    <h2 className="text-xl xl:text-3xl font-bold text-yellow-400 mb-4">
                       {items.name}
                     </h2>
                     <p className="mb-4 text-slate-600">{items.desc}</p>
-                    <div className="flex justify-between items-center">
-                      <p className="text-slate-600 text-2xl font-semibold">
+                    <div className="flex xl:flex-row flex-col justify-between xl:items-center">
+                      <p className="text-slate-600 text-xl xl:text-2xl font-semibold xl:mb-0 mb-3">
                         <Sell style={{ fontSize: "26px", color: "#facc15" }} />
                         {items.price} VND
                       </p>

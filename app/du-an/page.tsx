@@ -47,7 +47,7 @@ const ProjectList: React.FC = () => {
 
     return (
         <div className='container mx-auto py-4 max-w-5xl'>
-            <nav className="flex my-4" aria-label="Breadcrumb">
+            <nav className="flex my-4 px-3" aria-label="Breadcrumb">
                 <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                     <li className="inline-flex items-center">
                         <Link href="/" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
@@ -70,7 +70,7 @@ const ProjectList: React.FC = () => {
             <h1>Projects</h1>
 
 
-            <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
+            <div className="grid xl:grid-cols-2 md:grid-cols-2 gap-4 px-4 xl:px-0">
                 {projects.map(project => (
                     <div key={project.id} className={`bg-white shadow-lg rounded-lg overflow-hidden max-h-72 relative ${style.project}`}>
                         <Link href={`/du-an/${project.link}`}>

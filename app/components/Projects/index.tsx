@@ -23,7 +23,7 @@ export default function Projects({ data }: { data: BannerType[] }) {
         </p>
         <div className="flex flex-wrap text-gray-700">
           {data.map((item) => (
-            <div key={item.id} className={`w-1/2 p-2`}>
+            <div key={item.id} className={`xl:w-1/2 w-full p-2`}>
               <div className="bg-white rounded-xl overflow-hidden shadow-md">
                 <Link href={`/du-an/${item.link}`}>
                   <div
@@ -39,8 +39,8 @@ export default function Projects({ data }: { data: BannerType[] }) {
                       {item.name}
                     </h3>
                   </div>
-                  <div className="p-2 flex items-center justify-between">
-                    <p className="mb-0 font-semibold text-gray-700">
+                  <div className="p-2 flex xl:flex-row flex-col-reverse items-center justify-between">
+                    <p className="mb-0 font-semibold text-gray-700 xl:mt-0 mt-3">
                       <Sell style={{ fontSize: "26px", color: "#facc15" }} />
                       {item.price}
                     </p>
