@@ -47,9 +47,9 @@ export default function Projects({ data, loading }: { data: BannerType[], loadin
         </p>
         <div className="flex flex-wrap text-gray-700">
           {data.map((item) => (
-            <div key={item.id} className={`xl:w-1/2 w-full p-2`}>
+            <div key={item.id} className={`xl:w-1/2 w-full p-2 hover:-translate-y-1 transition-all`}>
               <div className="bg-white rounded-xl overflow-hidden shadow-md">
-                <Link href={`/du-an/${item.link}`}>
+                <Link href={`/du-an/${item.link}`} className="block">
                   <div
                     className={`${style.card}`}
                     style={{ backgroundImage: `url(${item.img})` }}
@@ -64,10 +64,15 @@ export default function Projects({ data, loading }: { data: BannerType[], loadin
                     </h3>
                   </div>
                   <div className="p-2 flex xl:flex-row flex-col-reverse items-center justify-between">
-                    <p className="mb-0 font-semibold text-gray-700 xl:mt-0 mt-3">
-                      <Sell style={{ fontSize: "26px", color: "#facc15" }} />
-                      {item.price}
-                    </p>
+                    <div className="flex justify-between items-center w-full lg:w-auto mt-3 lg-mt-0">
+                      <p className="mb-0 font-semibold text-gray-700 xl:mt-0 mt-3">
+                        <Sell style={{ fontSize: "26px", color: "#facc15" }} />
+                        {item.price}
+                      </p>
+                      <span className="p-2 bg-yellow-500 text-white rounded-md block text-center lg:hidden">
+                        Xem chi tiết
+                      </span>
+                    </div>
                     <ul className="flex items-center">
                       <li className="p-1 font-semibold flex flex-col items-center">
                         <p>

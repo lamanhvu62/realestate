@@ -1,0 +1,23 @@
+.toast {
+    overflow: hidden;
+    ::after {
+        position: absolute;
+        content: '';
+        width: 0;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+        background-color: oklch(0.871 0.15 154.449);
+        transition: all 0.3s;
+        animation: progress 5s linear;
+    }
+}
+
+@keyframes progress {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
